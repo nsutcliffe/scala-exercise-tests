@@ -38,14 +38,12 @@ subprojects {
 			target '**/*.scala'
 			trimTrailingWhitespace()
 			endWithNewline()
-            targetExclude('**/*AntiPattern.scala')
 		}
 
 		scala {
 			//scalafmt()
 			// optional: you can specify a specific version or config file
 			scalafmt('1.5.1').configFile(projectRoot + '/.scalafmt.conf')
-			targetExclude('**/*AntiPattern.scala')
 		}
 	}
 
@@ -70,27 +68,19 @@ subprojects {
     }
 }
 
-project("mytemplateproject") {
+project("99scalaproblems") {
 
-    def projectName = "my-template-project"
+    def projectName = "99scalaproblems"
 
     jar {
         baseName = "${projectName}_$scalaVersion"
         version = "$version"
     }
 
-    test {
-        maxParallelForks = 1
-    }
-
     dependencies {
         compile("org.scala-lang:scala-library:$scalaLibVersion")
         compile("org.scala-lang:scala-compiler:$scalaLibVersion")
 
-        compile("org.apache.spark:spark-core_$scalaVersion:$spark")
-        compile("org.apache.spark:spark-sql_$scalaVersion:$spark")
-        compile("org.apache.spark:spark-yarn_$scalaVersion:$spark")
-        compile("org.apache.spark:spark-hive_$scalaVersion:$spark")
     }
 	
 }

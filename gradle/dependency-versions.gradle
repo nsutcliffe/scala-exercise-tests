@@ -5,5 +5,4 @@
 ext {
 	pegdown = "1.6.0"
     scalatest = "3.0.2"
- 	spark = "2.4.0"
 }
